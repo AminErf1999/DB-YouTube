@@ -8,9 +8,9 @@ CREATE TABLE video (
 	);
 	
 CREATE TABLE users (
-    username varchar(20) NOT NULL,
+    username varchar(20) NOT NULL PRIMARY KEY,
 	email varchar(50) NOT NULL,
-	password int NOT NULL,
+	password varchar(20) NOT NULL,
 	membershipDate date NOT NULL,
 	profileimage varchar(200) 
 	);
@@ -38,8 +38,11 @@ CREATE TABLE watch (
 	);
 	
 CREATE TABLE comment_txt (
-	commentid int NOT NULL,
-	parentcommentid int NOT NULL
+	commentid int NOT NULL primary key,
+	videoid int,
+	userid varchar(20),
+	parentcommentid int NOT NULL,
+	text varchar(1000) NOT NULL
    	);
 	
 CREATE TABLE user_channel (
@@ -50,6 +53,7 @@ CREATE TABLE user_channel (
 	
 CREATE TABLE playlist (
     id int NOT NULL primary key,
+	name varchar(20),
     username varchar(20) NOT NULL,
 	ispublic bool
 	);

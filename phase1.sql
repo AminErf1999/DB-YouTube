@@ -1,12 +1,3 @@
-CREATE TABLE video (
-    id int NOT NULL primary key,
-    name varchar(20) NOT NULL,
-    uploadDate date,
-	duration int,
-	description varchar(100),
-	thumbnailimage varchar(200) 
-	);
-	
 CREATE TABLE users (
     username varchar(20) NOT NULL PRIMARY KEY,
 	email varchar(50) NOT NULL,
@@ -15,11 +6,13 @@ CREATE TABLE users (
 	profileimage varchar(200) 
 	);
 	
-CREATE TABLE playlist_video (
+CREATE TABLE video (
     id int NOT NULL primary key,
     name varchar(20) NOT NULL,
-    playlistid int NOT NULL,
-	videoid int NOT NULL
+    uploadDate date NOT NULL,
+	duration int NOT NULL,
+	description varchar(100) NOT NULL,
+	thumbnailimage varchar(200) NOT NULL
 	);
 	
 CREATE TABLE channel (
@@ -27,7 +20,20 @@ CREATE TABLE channel (
     name varchar(20) NOT NULL,
     creationDate date NOT NULL,
 	description varchar(100) NOT NULL,
-	image varchar(200) 
+	image varchar(200) NOT NULL
+	);
+	
+CREATE TABLE user_channel (
+	id int NOT NULL,
+	username varchar(20) NOT NULL,
+	channelid int NOT NULL
+   	);		
+	
+CREATE TABLE playlist_video (
+    id int NOT NULL primary key,
+    name varchar(20) NOT NULL,
+    playlistid int NOT NULL,
+	videoid int NOT NULL
 	);
 	
 CREATE TABLE watch (
@@ -44,13 +50,7 @@ CREATE TABLE comment_txt (
 	parentcommentid int NOT NULL,
 	text varchar(1000) NOT NULL
    	);
-	
-CREATE TABLE user_channel (
-	id int NOT NULL,
-	username varchar(20) NOT NULL,
-	channelid int NOT NULL
-   	);	
-	
+		
 CREATE TABLE playlist (
     id int NOT NULL primary key,
 	name varchar(20),

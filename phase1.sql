@@ -11,7 +11,7 @@ CREATE TABLE video (
     name varchar(20) NOT NULL,
     uploadDate date NOT NULL,
 	duration int NOT NULL,
-	description varchar(100) NOT NULL,
+	description varchar(1000) NOT NULL,
 	thumbnailimage varchar(200) NOT NULL
 	);
 	
